@@ -1,3 +1,4 @@
+/* ======= Reset y fuente base ======= */
 * {
   padding: 0;
   margin: 0;
@@ -6,9 +7,10 @@
 }
 
 body {
-  background-color: #000000;
+  background-color: #000;
 }
 
+/* ======= Tarjeta principal ======= */
 .card {
   width: 640px;
   height: 400px;
@@ -31,6 +33,7 @@ body {
   transform: rotateY(-130deg);
 }
 
+/* ======= Lados ======= */
 .outside,
 .inside {
   height: 100%;
@@ -62,6 +65,15 @@ body {
   cursor: pointer;
 }
 
+.outside p {
+    font-size: 23px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 6px;
+    color: #fff;
+}
+
 .front,
 .back {
   height: 100%;
@@ -81,6 +93,7 @@ body {
   background: linear-gradient(to left, #694597, #74559d 30%);
 }
 
+/* ======= Pastel (referencia anterior) ======= */
 .cake {
   width: 100%;
   position: absolute;
@@ -88,83 +101,18 @@ body {
   left: 0;
   display: flex;
   justify-content: center;
-  pointer-events: none; /* para que no interfiera con el hover de la tarjeta */
+  pointer-events: none;
 }
 
 .cake-img {
-  width: 240px;     /* ajusta según tu imagen */
+  width: 240px;
   height: auto;
   animation: cake-bounce 2.5s ease-in-out infinite;
 }
 
-/* efecto de rebote suave, opcional */
 @keyframes cake-bounce {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-6px); }
-}
-
-.top-layer,
-.middle-layer,
-.bottom-layer {
-  height: 80px;
-  width: 240px;
-  background-repeat: repeat;
-  background-size: 60px 100px;
-  background-position: 28px 0;
-  background-image: linear-gradient(transparent 50px,
-      #fedbab 50px,
-      #fedbab 60px,
-      transparent 60px),
-    radial-gradient(circle at 30px 5px, #994c10 30px, #fcbf29 31px);
-  border-radius: 10px 10px 0 0;
-  position: relative;
-  margin: auto;
-}
-
-.middle-layer {
-  transform: scale(0.85);
-  top: 6px;
-}
-
-.top-layer {
-  transform: scale(0.7);
-  top: 26px;
-}
-
-.candle {
-  height: 45px;
-  width: 15px;
-  background: repeating-linear-gradient(45deg,
-      #fd3018 0,
-      #fd3018 5px,
-      #ffa89e 5px,
-      #ffa89e 10px);
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  bottom: 202px;
-}
-
-.candle:before {
-  content: "";
-  position: absolute;
-  height: 16px;
-  width: 16px;
-  background-color: #ffa500;
-  border-radius: 0 50% 50% 50%;
-  bottom: 48px;
-  transform: rotate(45deg);
-  left: -1px;
-}
-
-.outside p {
-  font-size: 23px;
-  text-transform: uppercase;
-  margin-top: 30px;
-  text-align: center;
-  letter-spacing: 6px;
-  color: #fff;
 }
 
 /* ======= Páginas internas ======= */
@@ -174,10 +122,87 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .page.active {
   display: flex;
+}
+
+/* ======= Fondo tipo "cake" por página ======= */
+.page {
+  isolation: isolate;
+}
+
+/* Imagen de fondo */
+.page-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.page-bg img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+/* Contenido encima del fondo */
+.page-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+/* ======= Texto estilo graffiti ======= */
+.graffiti-text {
+  font-family: "Jackboa", sans-serif;
+  color: #ff4ffb;
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 10px #000;
+  letter-spacing: 2px;
+  line-height: 1;
+  animation: text-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes text-glow {
+  0% {
+    text-shadow: 0 0 5px #ff4ffb, 0 0 10px #ff4ffb, 0 0 20px #9d4fff;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff4ffb, 0 0 25px #9d4fff, 0 0 35px #ff4ffb;
+  }
+}
+
+/* ======= Páginas con imagen completa ======= */
+.page.full {
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.page.full img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
 }
 
 /* ======= Controles ======= */
@@ -202,49 +227,21 @@ body {
   background: #333;
 }
 
-/* ======= Páginas con imagen completa ======= */
-.page.full {
-  padding: 0;
-  justify-content: center;
-  align-items: center;
-}
-
-.page.full img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0;
-}
-
-/* Capa de fondo con el SVG y movimiento de paneo */
+/* ======= Fondo general animado opcional ======= */
 .bg-pan {
   position: fixed;
   inset: 0;
-  z-index: -1;                 /* detrás de todo */
+  z-index: -1;
   animation: bg-pan 45s linear infinite alternate;
-  /* Opcional: darle un toque */
   filter: saturate(1.05) contrast(1.02);
 }
 
-/* Anima el paneo horizontal + un poquito vertical */
 @keyframes bg-pan {
-  0%   { background-position: 0% 40%; }
-  50%  { background-position: 100% 60%; }
+  0% { background-position: 0% 40%; }
+  50% { background-position: 100% 60%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Respeta usuarios con reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .bg-pan { animation: none; }
 }
-
- .graffiti-text {
-    font-family: 'Jackboa', sans-serif;
-    color: #ff4ffb;
-    font-size: 2rem;
-    text-transform: uppercase;
-    text-shadow: 3px 3px 10px #000;
-    letter-spacing: 1px;
-  }

@@ -8,13 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css" />
-    <style>
-   @font-face {
-    font-family: 'Jackboa';
-    src: url('./font/JackboaDemo-wo2e2.otf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  <style>
+    @font-face {
+      font-family: 'Jackboa';
+      src: url('./font/JackboaDemo-wo2e2.otf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
   </style>
 </head>
 
@@ -33,19 +33,37 @@
       <div class="back"></div>
     </div>
 
-    <!-- Interior con varias páginas -->
     <div class="inside">
+
       <div class="page active">
-      <h1 class="graffiti-text">GET JINXED!</h1>
+        <div class="page-bg">
+          <img src="./img/jims.png" alt="Fondo Jinx">
+        </div>
+        <div class="page-content">
+          <h1 class="graffiti-text">GET JINXED!</h1>
+        </div>
       </div>
+
       <div class="page">
-        <p>Que todos tus deseos se hagan realidad</p>
-        <h1>🎂</h1>
+        <div class="page-bg">
+          <img src="img/cake.png" alt="Pastel de cumpleaños">
+        </div>
+        <div class="page-content">
+          <p>Que todos tus deseos se hagan realidad</p>
+          <h1>🎂</h1>
+        </div>
       </div>
+
       <div class="page">
-        <p>Gracias por ser una persona tan especial</p>
-        <h1>💖</h1>
+        <div class="page-bg">
+          <img src="img/hearts.png" alt="Corazones">
+        </div>
+        <div class="page-content">
+          <p>Gracias por ser una persona tan especial</p>
+          <h1>💖</h1>
+        </div>
       </div>
+
       <div class="page full">
         <img src="img/Anh.jpg" alt="Recuerdo" />
       </div>
@@ -54,13 +72,13 @@
         <img src="img/stars.gif" alt="Gif divertido" />
       </div>
 
-
-      <!-- Controles -->
       <div class="controls">
         <button id="prev">⬅️ Anterior</button>
         <button id="next">Siguiente ➡️</button>
       </div>
     </div>
+
+  </div>
   </div>
 
   <!-- Script -->
