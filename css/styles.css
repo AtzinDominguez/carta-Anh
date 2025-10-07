@@ -228,7 +228,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: -1;                 /* detrás de todo */
-  background: url('/img/jinx.svg') center / cover no-repeat fixed;
+  background: url('img/jinx.svg') center / cover no-repeat fixed;
   animation: bg-pan 45s linear infinite alternate;
   /* Opcional: darle un toque */
   filter: saturate(1.05) contrast(1.02);
