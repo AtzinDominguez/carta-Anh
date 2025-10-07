@@ -167,11 +167,6 @@ body {
   color: #fff;
 }
 
-.inside h1 {
-  font-size: 120px;
-  line-height: 120px;
-}
-
 /* ======= Páginas internas ======= */
 .page {
   display: none;
@@ -244,3 +239,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .bg-pan { animation: none; }
 }
+
+ .graffiti-text {
+    font-family: 'Jackboa', sans-serif;
+    color: #ff4ffb;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 10px #000;
+    letter-spacing: 1px;
+  }
