@@ -106,6 +106,7 @@
 
   </div>
   </div>
+<audio id="bg-audio" src="./music/ma_ennemie.mp3" autoplay loop></audio>
 
   <!-- Script -->
   <script>
@@ -139,6 +140,26 @@
 
     // Inicializar
     showPage(current);
+
+     window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('bg-audio');
+    audio.volume = 0.05; // volumen bajo (0.0 a 1.0)
+
+    // Algunos navegadores bloquean autoplay, así que forzamos play() si está permitido
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          // se reprodujo correctamente
+        })
+        .catch(() => {
+          // si no se permite autoplay, podemos pedir interacción
+          document.body.addEventListener('click', () => {
+            audio.play();
+          }, { once: true });
+        });
+    }
+  });
   </script>
 </body>
 

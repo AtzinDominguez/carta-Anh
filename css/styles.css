@@ -245,3 +245,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .bg-pan { animation: none; }
 }
+
+audio {
+  display: none; /* o visibility: hidden; */
+}
