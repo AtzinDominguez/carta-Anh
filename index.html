@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Card</title>
+    <!-- Google Font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="outside">
+        <div class="front">
+          <p>Happy Birthday</p>
+          <div class="cake">
+            <div class="top-layer"></div>
+            <div class="middle-layer"></div>
+            <div class="bottom-layer"></div>
+            <div class="candle"></div>
+          </div>
+        </div>
+        <div class="back"></div>
+      </div>
+
+      <!-- Interior con varias páginas -->
+      <div class="inside">
+        <div class="page active">
+          <p>Wishing you a very happy birthday filled with love and laughter</p>
+          <h1>&#127873;</h1>
+        </div>
+        <div class="page">
+          <p>Que todos tus deseos se hagan realidad</p>
+          <h1>🎂</h1>
+        </div>
+        <div class="page">
+          <p>Gracias por ser una persona tan especial</p>
+          <h1>💖</h1>
+        </div>
+
+        <!-- Controles -->
+        <div class="controls">
+          <button id="prev">⬅️ Anterior</button>
+          <button id="next">Siguiente ➡️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+      const pages = document.querySelectorAll(".inside .page");
+      const nextBtn = document.getElementById("next");
+      const prevBtn = document.getElementById("prev");
+      let current = 0;
+
+      function showPage(index) {
+        pages.forEach((page, i) => {
+          page.classList.remove("active");
+          if (i === index) {
+            page.classList.add("active");
+          }
+        });
+      }
+
+      nextBtn.addEventListener("click", () => {
+        if (current < pages.length - 1) {
+          current++;
+          showPage(current);
+        }
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if (current > 0) {
+          current--;
+          showPage(current);
+        }
+      });
+
+      // Inicializar
+      showPage(current);
+    </script>
+  </body>
+</html>
