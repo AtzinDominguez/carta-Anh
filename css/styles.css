@@ -43,7 +43,7 @@ body {
 }
 
 .inside {
-  background: linear-gradient(to right, #694597, #74559d 30%);
+  background: linear-gradient(to right, #8f37ff, #7200ff 30%);
   color: #fff;
   line-height: 3;
   padding: 20px;
@@ -85,12 +85,12 @@ body {
 }
 
 .front {
-  background-color: #74559d;
+  background-color: #7200ff;
 }
 
 .back {
   transform: rotateY(180deg);
-  background: linear-gradient(to left, #694597, #74559d 30%);
+  background: linear-gradient(to left, #8f37ff, #7200ff 30%);
 }
 
 /* ======= Pastel (referencia anterior) ======= */
